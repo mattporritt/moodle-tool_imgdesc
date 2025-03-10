@@ -1,0 +1,48 @@
+{{!
+    This file is part of Moodle - http://moodle.org/
+
+    Moodle is free software: you can redistribute it and/or modify
+    it under the terms of the GNU General Public License as published by
+    the Free Software Foundation, either version 3 of the License, or
+    (at your option) any later version.
+
+    Moodle is distributed in the hope that it will be useful,
+    but WITHOUT ANY WARRANTY; without even the implied warranty of
+    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+    GNU General Public License for more details.
+
+    You should have received a copy of the GNU General Public License
+    along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
+}}
+{{!
+    @template tool_imgdesc/describeintro
+
+    Template to display the introduction to the image description tool.
+
+    Context variables required for this template:
+    * drafturl - URL for the user uploaded image.
+
+    Example context (json):
+    {
+        "drafturl": "http://example.com/draftimage.png"
+    }
+}}
+<div class="container">
+  <div class="row justify-content-center">
+    <div class="col-10 col-md-6 text-center">
+      <!-- Top box: the image itself with rounded corners -->
+      <img id="image-box" src="{{drafturl}}" class="img-fluid rounded" alt="Dynamic Image"/>
+    </div>
+  </div>
+
+  <div class="row justify-content-center mt-3">
+    <div class="col-10 col-md-6">
+      <!-- Bottom box for text -->
+      <div id="text-box" class="border rounded p-4">
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque metus est...</p>
+      </div>
+    </div>
+  </div>
+
+  <hr/>
+</div>
