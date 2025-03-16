@@ -21,25 +21,29 @@
 
     Context variables required for this template:
     * drafturl - URL for the user uploaded image.
+    * contextid - The users context for the file.
+    * itemid - The item id for the file.
 
     Example context (json):
     {
-        "drafturl": "http://example.com/draftimage.png"
+        "drafturl": "http://example.com/draftimage.png",
+        "contextid": 123,
+        "itemid": 456
     }
 }}
 <div class="container">
   <div class="row justify-content-center">
     <div class="col-10 col-md-6 text-center">
       <!-- Top box: the image itself with rounded corners -->
-      <img id="image-box" src="{{drafturl}}" class="img-fluid rounded" alt="Dynamic Image"/>
+      <img id="image-box" src="{{drafturl}}" class="img-fluid rounded" alt="{{#str}}draftimage, tool_imgdesc{{/str}}"/>
     </div>
   </div>
 
   <div class="row justify-content-center mt-3">
     <div class="col-10 col-md-6">
       <!-- Bottom box for text -->
-      <div id="{{uniqid}}-text-box" class="border rounded p-4">
-        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque metus est...</p>
+      <div id="{{uniqid}}-text-box" class="border rounded p-4 disabled">
+        {{#str}}generating, tool_imgdesc{{/str}}
       </div>
     </div>
   </div>
@@ -48,6 +52,6 @@
 </div>
 {{#js}}
   require(['tool_imgdesc/describe'], function(describe) {
-    describe.generate('{{{uniqid}}}');
+    describe.generate('{{uniqid}}-text-box', {{contextid}}, {{itemid}});
   });
 {{/js}}

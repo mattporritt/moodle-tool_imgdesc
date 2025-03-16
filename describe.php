@@ -57,7 +57,13 @@ if ($data = $mform->get_data()) {
     // Page output.
     echo $OUTPUT->header();
     // Add a description of the page.
-    echo $OUTPUT->render_from_template('tool_imgdesc/describedisplay', ["drafturl" => $url]);
+    echo $OUTPUT->render_from_template(
+            templatename: 'tool_imgdesc/describedisplay',
+            context: [
+                'drafturl' => $url,
+                'contextid' => $contextid,
+                'itemid' => $data->image,
+            ]);
 
     echo $OUTPUT->footer();
 

@@ -22,15 +22,17 @@
  * @since      4.5
  */
 
-// import Ajax from 'core/ajax';
+import Ajax from 'core/ajax';
 
 /**
  * Generate the description of the image.
  *
- * @param {String} id The unique id of the text box.
+ * @param {string} id The unique id of the text box.
+ * @param {int} contextid The users context for the file.
+ * @param {int} itemid The item id for the file.
  * @return {void}
  */
-export const generate = (id) => {
-    window.console.log(`Generating ${id}`);
+export const generate = (id, contextid, itemid) => {
+    Ajax.call;
 };
 

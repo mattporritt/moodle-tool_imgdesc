@@ -27,5 +27,7 @@ defined('MOODLE_INTERNAL') || die();
 
 $string['describeimage'] = 'Generate Image Descriptions';
 $string['describeintro'] = 'Upload an image to generate a description for it using AI.';
+$string['draftimage'] = 'This is the uploaded image that a description will be generated for.';
+$string['generating'] = 'Generating description...';
 $string['pluginname'] = 'Image Describe';
 $string['uploadimage'] = 'Upload the image to describe';
