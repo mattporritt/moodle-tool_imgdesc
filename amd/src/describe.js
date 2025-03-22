@@ -32,7 +32,25 @@ import Ajax from 'core/ajax';
  * @param {int} itemid The item id for the file.
  * @return {void}
  */
-export const generate = (id, contextid, itemid) => {
-    Ajax.call;
+export const generate = async(id, contextid, itemid) => {
+    const requestobj = {
+        methodname: 'tool_imgdesc_describe_image',
+        args: {
+            contextid: contextid,
+            itemid: itemid,
+        }
+    };
+    const textarea = document.getElementById(id);
+    try {
+        const responseObj = await Ajax.call([requestobj])[0];
+        if (responseObj.error) {
+            textarea.innerHTML = responseObj.error;
+        } else {
+            textarea.innerHTML = responseObj.generatedcontent;
+        }
+    } catch (error) {
+        window.console.log(error);
+        this.displayError();
+    }
 };
 
