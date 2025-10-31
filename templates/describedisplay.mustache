@@ -47,11 +47,20 @@
       </div>
     </div>
   </div>
-
-  <hr/>
+  <!-- Footer actions (hidden until we have a result) -->
+  <div id="{{uniqid}}-footer" class="row justify-content-center mt-3 d-none">
+    <div class="col-10 col-md-6 text-center">
+      <button id="{{uniqid}}-btn-regenerate" class="btn btn-secondary">
+        {{#str}}regenerate, tool_imgdesc{{/str}}
+      </button>
+      <button id="{{uniqid}}-btn-newimage" class="btn btn-primary">
+        {{#str}}newimage, tool_imgdesc{{/str}}
+      </button>
+    </div>
+  </div>
 </div>
 {{#js}}
   require(['tool_imgdesc/describe'], function(describe) {
-    describe.generate('{{uniqid}}-text-box', {{contextid}}, {{itemid}});
+    describe.init('{{uniqid}}-text-box', {{contextid}}, {{itemid}}, '{{uniqid}}');
   });
 {{/js}}
